@@ -8,12 +8,13 @@
     enableDefaultFonts = true;
     # why set this
     # enableFontDir = true;
-    fonts = [
-      pkgs.source-code-pro
-      pkgs.source-sans-pro
-      pkgs.source-serif-pro
+    fonts = with pkgs; [
+      source-code-pro
+      source-sans-pro
+      source-serif-pro
+      noto-fonts-emoji
       # free alternative to pragmata pro with glyphs :0
-      pkgs.iosevka
+      iosevka
     ];
   };
 }

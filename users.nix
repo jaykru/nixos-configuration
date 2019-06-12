@@ -10,7 +10,8 @@
 			"audio"
 			"networkmanager"
 			"sway"
-			"usb" ];
+			"usb"
+			"backlight" ];
       };
     };
   };

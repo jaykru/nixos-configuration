@@ -2,6 +2,7 @@
 { imports = [
     ../hardware-configuration.nix
     ../users.nix
+    ../services.nix
     # TODO: fix dotfile installation
     # ../dotfiles.nix
     ../programs.nix

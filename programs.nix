@@ -13,6 +13,8 @@
     neovim
     stow
     gnumake
+    ledger
+    keybase
 
     # mail
     isync
@@ -48,6 +50,7 @@
 
     # Coq
     coq
+    coqPackages.flocq
 
     # Agda
     # (import ./programs/agda {})
