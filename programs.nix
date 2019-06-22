@@ -15,11 +15,17 @@
     gnumake
     ledger
     keybase
+    imagemagick
+    htop
+    xdg_utils # for xdg-open
+    usbtils
+    jetbrains.jdk
 
     # mail
     isync
     notmuch
     msmtp
+    bogofilter
 
     git
     gitAndTools.hub
@@ -35,6 +41,7 @@
 
     # Fun
     cmatrix
+    nethack
 
     # Battery
     acpi
@@ -47,10 +54,22 @@
 
     # OCaml
     ocaml
+    opam
+    m4
+    binutils-unwrapped
 
     # Coq
-    coq
-    coqPackages.flocq
+    coq_8_9
+
+    # Rust
+    rustup
+
+    # Math
+    sage
+
+    # Complete trash
+    clang
+    gcc
 
     # Agda
     # (import ./programs/agda {})

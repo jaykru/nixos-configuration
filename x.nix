@@ -2,6 +2,7 @@
 { environment.systemPackages = with pkgs; [
     light
     libreoffice
+    signal-desktop
     grim
     imv
     spotify
@@ -13,7 +14,12 @@
     mpv
     mako
   ];
-
-  programs.sway.enable = true;
+	
+  programs.sway = {
+    enable = true;
+    extraSessionCommands = ''
+      export XKB_DEFAULT_OPTIONS=ctrl:nocaps,
+    '';
+  };
 
 }
