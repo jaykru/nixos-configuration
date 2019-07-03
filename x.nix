@@ -18,7 +18,8 @@
   programs.sway = {
     enable = true;
     extraSessionCommands = ''
-      export XKB_DEFAULT_OPTIONS=ctrl:nocaps,
+      export XKB_DEFAULT_OPTIONS=ctrl:nocaps,;
+      xrdb -load $HOME/.Xresources
     '';
   };
 

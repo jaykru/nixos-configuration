@@ -18,8 +18,7 @@
     imagemagick
     htop
     xdg_utils # for xdg-open
-    usbtils
-    jetbrains.jdk
+    usbutils
 
     # mail
     isync
