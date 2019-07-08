@@ -19,6 +19,7 @@
     htop
     xdg_utils # for xdg-open
     usbutils
+    radare2
 
     # mail
     isync

@@ -9,7 +9,7 @@
     ../networking.nix
     ../nix.nix
     ../fonts.nix
-    ../x.nix
+    ../wayland.nix
     ../audio.nix
   ];
   # TODO: look into switching to systemd-boot?
