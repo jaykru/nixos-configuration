@@ -1,15 +1,10 @@
-{ nixpkgs.config = {
+{ 
+  nixpkgs.config = {
     allowUnfree = true;
     allowUnsupportedSystem = true;
+    # TODO: Apparently packageOverrides in config.nix is deprecated. Investigate alternatives.
+#    packageOverrrides = pkgs: {
+#    	vim_configurable = pkgs.vim_configurable.override { python = pkgs.python3; };
+#    };
   };
-  # nix = {
-    # binaryCaches = [
-      # "https://cache.nixos.org/"
-      # "https://mpickering.cachix.org"
-    # ];
-    # binaryCachePublicKeys = [
-      # "mpickering.cachix.org-1:COxPsDJqqrggZgvKG6JeH9baHPue8/pcpYkmcBPUbeg="
-    # ];
-    # trustedUsers = [ "root" "amckean" ];
-  # };
 }

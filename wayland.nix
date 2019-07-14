@@ -19,7 +19,7 @@
     enable = true;
     extraSessionCommands = ''
       export XKB_DEFAULT_OPTIONS=ctrl:nocaps,
-      xrdb -load $HOME/.Xresources
+      # xrdb -load $HOME/.Xresources
       '';
   };
 

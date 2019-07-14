@@ -1,11 +1,20 @@
 { pkgs, ... }:
-{ environment.systemPackages = with pkgs; [
+
+let my_vim = pkgs.vim_configurable.override { python = pkgs.python3; };
+
+in { environment.systemPackages = with pkgs; [
+    # vim
+    #(import ./vim.nix)
+    my_vim
+
     # general
     which
     wget
     tmux
     tree
     emacs
+    ripgrep
+    python3
     rtorrent
     parted
     unzip
@@ -71,6 +80,9 @@
     clang
     gcc
 
+    # Python
+    python3
+
     # Agda
     # (import ./programs/agda {})
 
@@ -80,10 +92,13 @@
     })
     aspell
     aspellDicts.en
+
+    # bash completions
+    nix-bash-completions
   ];
 
-  # use the correct shell
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
+  programs.bash.enableCompletion = true;
 
   programs.ssh = {
     startAgent = true;

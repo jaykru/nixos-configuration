@@ -1,7 +1,7 @@
 { pkgs, ... }:
 { users = {
     # mutableUsers = false;
-    defaultUserShell = pkgs.fish;
+    # defaultUserShell = pkgs.fish;
     users = { 
       j = {
         isNormalUser = true;
@@ -11,7 +11,8 @@
 			"networkmanager"
 			"sway"
 			"usb"
-			"backlight" ];
+			"backlight"
+			"video" ];
       };
     };
   };
