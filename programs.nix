@@ -8,6 +8,8 @@ in { environment.systemPackages = with pkgs; [
     my_vim
 
     # general
+    bc
+    file
     which
     wget
     tmux
@@ -27,8 +29,15 @@ in { environment.systemPackages = with pkgs; [
     imagemagick
     htop
     xdg_utils # for xdg-open
+    ncpamixer # replace pavucontrol which is broken on wayland 
+    # tox clients
+    qtox
+    toxic
+    cli-visualizer
     usbutils
     radare2
+    
+    pkg-config # finding ssl
 
     # mail
     isync
@@ -36,8 +45,7 @@ in { environment.systemPackages = with pkgs; [
     msmtp
     bogofilter
 
-    git
-    gitAndTools.hub
+    gitAndTools.gitFull
     gist
 
     # Encryption
@@ -82,6 +90,7 @@ in { environment.systemPackages = with pkgs; [
 
     # Python
     python3
+    python37Packages.pygments
 
     # Agda
     # (import ./programs/agda {})
@@ -99,7 +108,6 @@ in { environment.systemPackages = with pkgs; [
 
   # programs.fish.enable = true;
   programs.bash.enableCompletion = true;
-
   programs.ssh = {
     startAgent = true;
     agentTimeout = "1h";

@@ -1,5 +1,6 @@
 let hostname = builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ./hostname);
 in
 { imports = [ (./machines + "/${hostname}.nix") ];
-  networking.hostName = hostname;
+networking.hostName = hostname;
+environment.variables.EDITOR = "emacs";
 }

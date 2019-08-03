@@ -1,6 +1,5 @@
 { pkgs, ... }:
 { environment.systemPackages = with pkgs; [
-    light
     libreoffice
     signal-desktop
     grim
@@ -21,6 +20,8 @@
       export XKB_DEFAULT_OPTIONS=ctrl:nocaps,
       # xrdb -load $HOME/.Xresources
       '';
-  };
+    };
 
+  # light with SUID wrappers
+  programs.light.enable = true;
 }
