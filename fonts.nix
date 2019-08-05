@@ -13,6 +13,7 @@
       source-sans-pro
       source-serif-pro
       noto-fonts-emoji
+      noto-fonts-cjk
       # free alternative to pragmata pro with glyphs :0
       iosevka
     ];
