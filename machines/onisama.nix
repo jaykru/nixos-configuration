@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 { imports = [
-    ../hardware-configuration.nix
+    <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    #../hardware-configuration.nix
     ../users.nix
     ../services.nix
     # TODO: fix dotfile installation
@@ -13,17 +14,26 @@
     ../audio.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
-  boot.supportedFilesystems = [ "zfs" ];
+  boot = {
+       initrd = {
+       	      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+	      kernelModules = [ ];
+       };
+
+       kernelPackages = pkgs.linuxPackages_latest;
+       loader.systemd-boot.enable = true;
+       supportedFilesystems = [ "zfs" ];
+  };
 
   time.timeZone = "America/Los_Angeles";
 
   system.stateVersion = "19.03";
 
-  hardware.bluetooth.enable = true;
-  hardware.bumblebee.enable = true;
-
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  hardware = {
+    bluetooth.enable = true;
+    bumblebee.enable = true;
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+  };
+  
 }

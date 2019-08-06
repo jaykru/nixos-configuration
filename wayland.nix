@@ -17,6 +17,7 @@
   ];
 
   services.xserver = {
+	videoDrivers = [ "nvidia" ]; # use propreitary driver
 	enable = true;
 	desktopManager = {
 		default = "none";
