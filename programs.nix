@@ -31,12 +31,12 @@ in { environment.systemPackages = with pkgs; [
     lsof
     xdg_utils # for xdg-open
     ncpamixer # replace pavucontrol which is broken on wayland 
-    # tox clients
-    qtox
-    toxic
     cli-visualizer
     usbutils
     radare2
+
+    # android mtp
+    jmtpfs
     
     pkg-config # finding ssl
 

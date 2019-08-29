@@ -1,6 +1,6 @@
 { pkgs, ... }:
 { i18n = {
-    consoleFont = "Lat2-Terminus16";
+    consoleFont = "sun12x22";
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -13,6 +13,7 @@
       source-sans-pro
       source-serif-pro
       noto-fonts-emoji
+      noto-fonts-cjk
       # free alternative to pragmata pro with glyphs :0
       iosevka
     ];
