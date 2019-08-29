@@ -28,6 +28,7 @@ in { environment.systemPackages = with pkgs; [
     keybase
     imagemagick
     htop
+    lsof
     xdg_utils # for xdg-open
     ncpamixer # replace pavucontrol which is broken on wayland 
     # tox clients
