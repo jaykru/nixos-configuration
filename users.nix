@@ -7,12 +7,12 @@
         isNormalUser = true;
         hashedPassword = "password";
         extraGroups = [ "wheel" 
-			"audio"
-			"networkmanager"
-			"sway"
-			"usb"
-			"backlight"
-			"video" ];
+			                  "audio"
+			                  "networkmanager"
+			                  "sway"
+			                  "usb"
+			                  "backlight"
+			                  "video" ];
       };
     };
   };

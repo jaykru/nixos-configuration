@@ -16,8 +16,8 @@
 
   boot = {
        initrd = {
-       	      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-	      kernelModules = [ ];
+       	 availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+	       kernelModules = [ ];
        };
 
        kernelPackages = pkgs.linuxPackages_latest;

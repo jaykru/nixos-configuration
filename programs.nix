@@ -34,6 +34,7 @@ in { environment.systemPackages = with pkgs; [
     cli-visualizer
     usbutils
     radare2
+    udiskie
 
     # android mtp
     jmtpfs
@@ -77,7 +78,7 @@ in { environment.systemPackages = with pkgs; [
     binutils-unwrapped
 
     # Coq
-    coq_8_9
+    coq_8_12
 
     # Rust
     rustup

@@ -22,7 +22,7 @@ nvme0n1          477G disk
 # Boot into nixos iso image
 # Configure networking
 nix-env --install git vim
-git clone https://github.com/mckeankylej/nixos-configuration.git
+git clone https://github.com/jaykru/nixos-configuration.git
 ./nixos-configuration/partition $DEVICE
 cp -r nixos-configuration/* /mnt/etc/nixos
 # Make personal changes to /mnt/etc/nixos/configuration.nix and other modules
