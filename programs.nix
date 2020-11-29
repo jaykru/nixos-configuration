@@ -84,7 +84,8 @@ in { environment.systemPackages = with pkgs; [
     rustup
 
     # Math
-    sage
+    # nix complains that this package is broken :(
+    # sage
 
     # Complete trash
     clang

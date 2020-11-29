@@ -5,7 +5,7 @@
     users = { 
       j = {
         isNormalUser = true;
-        hashedPassword = "password";
+        password = "password";
         extraGroups = [ "wheel" 
 			                  "audio"
 			                  "networkmanager"

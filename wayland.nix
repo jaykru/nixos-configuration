@@ -3,6 +3,7 @@
     libreoffice
     signal-desktop
     grim
+    lyx
     imv
     feh
     scrot
@@ -20,8 +21,9 @@
 	videoDrivers = [ "nvidia" ]; # use proprietary driver
 	enable = true;
 	desktopManager = {
-		default = "none";
+		default = "sway";
 		xterm.enable = false;
+                plasma5.enable = true;
 	};
 
 	libinput = {
@@ -32,7 +34,8 @@
 	};
 
 	displayManager = {
-		startx.enable = true;
+		# startx.enable = true;
+                sddm.enable = true;
 	};
 	
 	windowManager.i3 = {
