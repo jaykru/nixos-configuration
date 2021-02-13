@@ -1,14 +1,23 @@
 { pkgs, ... }:
 
 let my_vim = pkgs.vim_configurable.override { python = pkgs.python3; };
-
+nix.extraOptions = ''
+      experimental-features = nix-command
+   '';
+# this is required until nix 2.4 is released
+nix.package = pkgs.nixUnstable;
+  
 in { environment.systemPackages = with pkgs; [
-    # vim
+   # vim
     #(import ./vim.nix)
     my_vim
 
+    # manpages
+    manpages
+
     # general
     bc
+    p7zip
     file
     which
     wget
@@ -30,11 +39,15 @@ in { environment.systemPackages = with pkgs; [
     htop
     lsof
     xdg_utils # for xdg-open
-    ncpamixer # replace pavucontrol which is broken on wayland 
+    ncpamixer # pavucontrol is broken on wayland 
+    pavucontrol 
     cli-visualizer
     usbutils
     radare2
+    ghidra-bin
     udiskie
+    nmap
+    traceroute
 
     # android mtp
     jmtpfs
@@ -78,7 +91,7 @@ in { environment.systemPackages = with pkgs; [
     binutils-unwrapped
 
     # Coq
-    coq_8_12
+    coq_8_11
 
     # Rust
     rustup
@@ -117,4 +130,7 @@ in { environment.systemPackages = with pkgs; [
   };
 
   programs.gnupg.agent.enable = true;
+
+  # install manpages when possible
+  documentation.dev.enable = true;
 }

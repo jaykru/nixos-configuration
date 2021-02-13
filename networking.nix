@@ -1,4 +1,5 @@
-{ networking.networkmanager.enable = true;
+{ 
+  networking.networkmanager.enable = true;
   # for zfs
   networking.hostId = "deadbeef";
 }

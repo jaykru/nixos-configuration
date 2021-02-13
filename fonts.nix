@@ -1,7 +1,10 @@
 { pkgs, ... }:
 { i18n = {
-    consoleFont = "sun12x22";
     defaultLocale = "en_US.UTF-8";
+  };
+
+  console = {
+    font = "sun12x22";
   };
 
   fonts = {
