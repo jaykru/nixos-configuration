@@ -30,8 +30,9 @@ in { environment.systemPackages = with pkgs; [
     htop
     lsof
     xdg_utils # for xdg-open
-    ncpamixer # replace pavucontrol which is broken on wayland 
+    pavucontrol # replace pavucontrol which is broken on wayland
     cli-visualizer
+    qbittorrent
     usbutils
     radare2
     udiskie
@@ -78,14 +79,14 @@ in { environment.systemPackages = with pkgs; [
     binutils-unwrapped
 
     # Coq
-    coq_8_12
+    coq_8_15
 
     # Rust
     rustup
 
     # Math
     # nix complains that this package is broken :(
-    # sage
+    sage
 
     # Complete trash
     clang
@@ -107,6 +108,10 @@ in { environment.systemPackages = with pkgs; [
 
     # bash completions
     nix-bash-completions
+
+    # icons
+    papirus-icon-theme
+    arc-theme
   ];
 
   # programs.fish.enable = true;
