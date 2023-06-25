@@ -1,5 +1,5 @@
 # NixOS Configuration
-With handy full-service partitioning script. Forked from @mckeankylej's original repo.
+With handy full-service partitioning script. Forked from @aljce's original repo.
 
 # Disk Partioning
 /boot is unencrypted
