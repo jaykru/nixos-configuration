@@ -1,14 +1,14 @@
 { pkgs, ... }:
-{ i18n = {
-    consoleFont = "sun12x22";
-    defaultLocale = "en_US.UTF-8";
-  };
+{
+
+  console.font = "sun12x22";
+  i18n.defaultLocale = "en_US.UTF-8"; # FIXME: move this?
 
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     # why set this
     # enableFontDir = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       source-code-pro
       source-sans-pro
       source-serif-pro

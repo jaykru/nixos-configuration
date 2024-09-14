@@ -1,18 +1,17 @@
 { pkgs, ... }:
 { users = {
     # mutableUsers = false;
-    # defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.fish;
     users = { 
       j = {
         isNormalUser = true;
-        password = "password";
-        extraGroups = [ "wheel" 
-			                  "audio"
-			                  "networkmanager"
-			                  "sway"
-			                  "usb"
-			                  "backlight"
-			                  "video" ];
+        extraGroups = [ "wheel"
+                        "audio"
+                        "networkmanager"
+                        "sway"
+                        "usb"
+                        "video"
+                        "adbusers"];
       };
     };
   };

@@ -8,6 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+<<<<<<< HEAD
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -37,4 +38,39 @@
 
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
+=======
+  boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  boot.kernelParams = ["hugepagesz=1GB"
+                       "hugepages=2"
+                       "iommu=pt"
+                       "nr_hugepages=2" ]; # for wormhole
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno3.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.graphics.enable = true;
+
+  # hardware.nvidia = {
+  #   nvidiaSettings = true;
+  #   modesetting.enable = true;
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #   powerManagement.finegrained = false;
+  #   open = false;
+  # };
+
+  services.udev.extraRules = ''
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="1e71", ATTRS{idProduct}=="300c", TAG+="uaccess"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="1e71", ATTRS{idProduct}=="2012", TAG+="uaccess"
+  '';
+>>>>>>> c0a77f8 (add latest config)
 }

@@ -1,12 +1,6 @@
 { pkgs, ... }:
 
-let my_vim = pkgs.vim_configurable.override { python = pkgs.python3; };
-
-in { environment.systemPackages = with pkgs; [
-    # vim
-    #(import ./vim.nix)
-    my_vim
-
+{ environment.systemPackages = with pkgs; [
     # general
     bc
     file
@@ -72,6 +66,9 @@ in { environment.systemPackages = with pkgs; [
     # stack2nix
     # haskellPackages.stylish-haskell
 
+    # lisp
+    sbcl
+
     # OCaml
     ocaml
     opam
@@ -82,7 +79,8 @@ in { environment.systemPackages = with pkgs; [
     coq_8_15
 
     # Rust
-    rustup
+    cargo
+    rustc
 
     # Math
     # nix complains that this package is broken :(
@@ -94,7 +92,7 @@ in { environment.systemPackages = with pkgs; [
 
     # Python
     python3
-    python37Packages.pygments
+    conda
 
     # Agda
     # (import ./programs/agda {})
@@ -110,16 +108,36 @@ in { environment.systemPackages = with pkgs; [
     nix-bash-completions
 
     # icons
-    papirus-icon-theme
+    # papirus-icon-theme
     arc-theme
+
+    liquidctl
+
+    cachix
   ];
 
-  # programs.fish.enable = true;
-  programs.bash.enableCompletion = true;
+  nixpkgs.overlays = [ (self: super: {
+      liquidctl = super.liquidctl.overrideAttrs (oldAttrs: {
+          version = "0.0";
+          src = super.fetchFromGitHub {
+              owner = "liquidctl";
+              repo = "liquidctl";
+              rev = "d343c0d";
+              sha256 = "sha256-2iiz8Cc3KYP2VZOGdmCG6b4CnGa3BOshZpmm+pM91SE="; # We'll get the correct hash from the error message
+          };
+          patches = [];
+      });
+  }) ];
+
+  programs.fish.enable = true;
+  # programs.bash.enableCompletion = true;
   programs.ssh = {
     startAgent = true;
     agentTimeout = "1h";
   };
 
+  programs.kdeconnect.enable = true;
+  programs.adb.enable = true;
   programs.gnupg.agent.enable = true;
+  programs.nix-ld.enable = true;
 }
